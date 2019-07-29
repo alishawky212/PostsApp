@@ -1,0 +1,147 @@
+ext {
+    versions = [
+        // For project configuration
+        java                : JavaVersion.VERSION_1_8,
+        minSdk              : 23,
+        compileSdk          : 28,
+        targetSdk           : 28,
+        appCompat           : '1.0.2',
+        inject                : '1',
+        buildTools          : '28.0.3',
+        dokka               : '0.9.16',
+        retrofit            : '2.6.0',
+        retrofitAdapter     : '2.6.0',
+        jakewhartonAdapter  : '1.0.0',
+        geson               : '2.8.5',
+        butterknife         : '10.1.0',
+        navVersion          : '2.1.0-alpha05',
+
+        crashlytics         : '2.10.1',
+        legacysupport       : '1.0.0',
+        retrofitRxAdapter     :'2.4.0',
+
+        // For app
+        kotlin              : '1.3.21',
+        coroutine           : '1.1.1',
+
+        constraintLayout    : '1.1.3',
+        recyclerview        : '1.1.0-alpha06',
+        browser             : '1.0.0',
+        workmanager         : '2.1.0',
+
+        gcm                 : '16.1.0',
+        material            : '1.1.0-alpha07',
+
+        dagger              : '2.23.1',
+        firebaseCloudMessage: '17.3.4',
+        firebaseAnalytics   : '16.0.6',
+        playServicesAuth    : '16.0.1',
+        exoPlayer           : '2.8.2',
+        flexbox             : '1.1.0',
+
+        rxAndroid           : '2.1.1',
+
+        rxJava              : '2.2.8',
+        rxBindingAppCompat  : '3.0.0-alpha2',
+
+        okhttp              : '4.0.0-alpha02',
+
+        timber              : '4.7.1',
+
+        fresco              : '1.14.1',
+
+        frescoImageViewer   : '0.5.1',
+
+        circleimageview     : '3.0.0',
+
+        cloudinary          : '1.26.0',
+
+        // For testing
+        junit               : '4.12',
+        coreTest            : '1.2.0',
+        mockito             : '2.28.2',
+        testRules           : '1.2.0',
+        extJunit            : '1.1.1',
+        testRunner          : '1.2.0',
+
+        truth               : '0.42',
+        espresso            : '3.2.0',
+        dexter              : '5.0.0',
+        stackimageview      : '0.0.6'
+    ]
+    libraries = [
+        kotlin             : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}",
+        coroutinesCore     : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutine}",
+        coroutinesAndroid  : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutine}",
+
+        retrofit           : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
+        inject                : "javax.inject:javax.inject:${versions.inject}" ,
+        retrofitConverter  : "com.squareup.retrofit2:converter-gson:${versions.retrofit}",
+        annotations           : "com.android.support:support-annotations:${versions.appCompat}",
+        geson              : "com.google.code.gson:gson:${versions.geson}",
+        retrofitAdapter    : "com.squareup.retrofit2:adapter-rxjava:${versions.retrofitAdapter}",
+        jakewhartonAdapter : "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:${versions.jakewhartonAdapter}",
+
+        butterknife        : "com.jakewharton:butterknife:${versions.butterknife}",
+        butterknifeCompiler: "com.jakewharton:butterknife-compiler:${versions.butterknife}",
+
+        material           : "com.google.android.material:material:${versions.material}",
+
+
+        crashlytics        : "com.crashlytics.sdk.android:crashlytics:${versions.crashlytics}",
+        legacysupport      : "androidx.legacy:legacy-support-v4:${versions.legacysupport}",
+
+        appCompat          : "androidx.appcompat:appcompat:${versions.appCompat}",
+        corektx           : "androidx.core:core-ktx:${versions.appCompat}",
+        constraintLayout   : "androidx.constraintlayout:constraintlayout:${versions.constraintLayout}",
+        recyclerview       : "androidx.recyclerview:recyclerview:${versions.recyclerview}",
+        browser            : "androidx.browser:browser:${versions.browser}",
+        fragmentsKtx       : "androidx.fragment:fragment-ktx:${versions.androidKtx}",
+        workmanager        : "androidx.work:work-runtime-ktx:${versions.workmanager}",
+        workmanagerFirebase: "android.arch.work:work-firebase:${versions.workmanager}",
+
+        gcm                : "com.google.android.gms:play-services-gcm:${versions.gcm}",
+
+        dagger             : "com.google.dagger:dagger:${versions.dagger}",
+        daggerSupport      : "com.google.dagger:dagger-android-support:${versions.dagger}",
+        daggerProcessor    : "com.google.dagger:dagger-compiler:${versions.dagger}",
+        daggerAndroidApt   : "com.google.dagger:dagger-android-processor:${versions.dagger}",
+        flexbox            : "com.google.android:flexbox:${versions.flexbox}",
+        retrofitRxAdapter     : "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofitRxAdapter",
+
+
+        rxAndroid          : "io.reactivex.rxjava2:rxandroid:${versions.rxAndroid}",
+        rxJava             : "io.reactivex.rxjava2:rxjava:${versions.rxJava}",
+        rxBindingAppCompat : "com.jakewharton.rxbinding3:rxbinding-appcompat:${versions.rxBindingAppCompat}",
+
+        okhttp             : "com.squareup.okhttp3:okhttp:${versions.okhttp}",
+        okhttpLogger       : "com.squareup.okhttp3:logging-interceptor:${versions.okhttp}",
+
+        timber             : "com.jakewharton.timber:timber:${versions.timber}",
+
+        fresco             : "com.facebook.fresco:fresco:${versions.fresco}",
+        frescoOkHttp       : "com.facebook.fresco:imagepipeline-okhttp3:${versions.fresco}",
+        frescoAnimatedGif  : "com.facebook.fresco:animated-gif:${versions.fresco}",
+        frescoWebP         : "com.facebook.fresco:webpsupport:${versions.fresco}",
+        frescoAnimatedWebP : "com.facebook.fresco:animated-webp:${versions.fresco}",
+
+        circleimageview    : "de.hdodenhof:circleimageview:${versions.circleimageview}",
+        cloudinary         : "com.cloudinary:cloudinary-android:${versions.cloudinary}",
+
+        // For testing
+        junit              : "junit:junit:${versions.junit}",
+        coreTest           : "androidx.test:core:${versions.coreTest}",
+        mockitoCore        : "org.mockito:mockito-core:${versions.mockito}",
+        mockito            : "org.mockito:mockito-android:${versions.mockito}",
+        testRules          : "androidx.test:rules:${versions.testRules}",
+        extJunit           : "androidx.test.ext:junit:${versions.extJunit}",
+        testRunner         : "androidx.test:runner:${versions.testRunner}",
+        espressoCore       : "androidx.test.espresso:espresso-core:${versions.espresso}",
+        espressoContrib    : "androidx.test.espresso:espresso-contrib:${versions.espresso}",
+        espressoIntents    : "androidx.test.espresso:espresso-intents:${versions.espresso}",
+        roomTest           : "android.arch.persistence.room:testing:${versions.room}",
+        truth              : "com.google.truth:truth:${versions.truth}",
+        dexter             : "com.karumi:dexter:${versions.dexter}",
+        stackimageview     : "com.kartikp.stackimageview:stackimageview:${versions.stackimageview}"
+    ]
+}

@@ -1,0 +1,60 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.example.postsapplication"
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation libraries.kotlin
+    implementation libraries.appCompat
+    implementation libraries.material
+    implementation libraries.dagger
+    implementation libraries.daggerSupport
+    kapt libraries.daggerProcessor
+    kapt libraries.daggerAndroidApt
+    implementation libraries.okhttpLogger
+    implementation libraries.annotations
+    implementation libraries.retrofitRxAdapter
+    implementation libraries.retrofit
+    implementation libraries.retrofitConverter
+    implementation libraries.rxJava
+    implementation libraries.rxAndroid
+    implementation libraries.rxJava
+    implementation libraries.rxAndroid
+    implementation libraries.recyclerview
+    implementation libraries.corektx
+    implementation libraries.geson
+    implementation libraries.constraintLayout
+    implementation libraries.legacysupport
+    testImplementation libraries.junit
+    androidTestImplementation libraries.testRunner
+    androidTestImplementation libraries.espressoCore
+    implementation project(path: ':data')
+    implementation project(path: ':domain')
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    kapt 'com.github.bumptech.glide:compiler:4.9.0'
+
+
+}
