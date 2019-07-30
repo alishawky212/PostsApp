@@ -13,8 +13,4 @@ class PostRepositoryImpl @Inject constructor(private val remoteApis: RemoteApis,
     override fun getPosts(): Single<List<Post>> {
         return remoteApis.getPosts().map { mapper.mapToDomain(it) }
     }
-
-    override fun getPost(postId: String): Single<Post> {
-        return remoteApis.getPost(postId).map { mapper.mapToDomain(it) }
-    }
 }

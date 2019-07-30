@@ -7,11 +7,9 @@ data class RemotePost(
     @SerializedName("body")
     val body: String,
     @SerializedName("id")
-    val id: Int,
+    val id: String,
     @SerializedName("title")
     val title: String,
     @SerializedName("userId")
-    val userId: Int,
-    val user: RemoteUser,
-    val comments:List<RemoteComment>
+    val userId: String
 )

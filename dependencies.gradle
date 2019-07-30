@@ -67,7 +67,10 @@ ext {
         truth               : '0.42',
         espresso            : '3.2.0',
         dexter              : '5.0.0',
-        stackimageview      : '0.0.6'
+        stackimageview      : '0.0.6',
+        assertj_core        : '3.9.1',
+        mockito_kotlin      : "1.5.0",
+        archCore            : "2.0.0-rc01"
     ]
     libraries = [
         kotlin             : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}",
@@ -142,6 +145,9 @@ ext {
         roomTest           : "android.arch.persistence.room:testing:${versions.room}",
         truth              : "com.google.truth:truth:${versions.truth}",
         dexter             : "com.karumi:dexter:${versions.dexter}",
-        stackimageview     : "com.kartikp.stackimageview:stackimageview:${versions.stackimageview}"
+        stackimageview     : "com.kartikp.stackimageview:stackimageview:${versions.stackimageview}",
+        assertj_core       : "org.assertj:assertj-core:${versions.assertj_core}",
+        mockito_kotlin     : "com.nhaarman:mockito-kotlin:${versions.mockito_kotlin}",
+        achCore            : "androidx.arch.core:core-testing:${versions.archCore}"
     ]
 }

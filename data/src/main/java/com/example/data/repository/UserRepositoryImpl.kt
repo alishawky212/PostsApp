@@ -13,8 +13,4 @@ class UserRepositoryImpl @Inject constructor(private val remoteApis: RemoteApis,
     override fun get(): Single<List<User>> {
         return remoteApis.getUsers().map { mapper.mapToDomain(it) }
     }
-
-    override fun get(userId: String): Single<User> {
-       return remoteApis.getUser(userId).map { mapper.mapToDomain(it) }
-    }
 }

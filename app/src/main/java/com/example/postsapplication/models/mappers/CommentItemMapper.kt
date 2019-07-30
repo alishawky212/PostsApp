@@ -7,6 +7,6 @@ import javax.inject.Inject
 class CommentItemMapper @Inject constructor() {
 
     fun mapToPresentation(commentsList: List<Comment>): List<CommentItem> = commentsList.map {
-        CommentItem(body = it.body, id = it.id,name = it.name,postId = it.postId)
+        CommentItem(body = it.body, id = it.id,name = it.name,postId = it.postId,email = it.email)
     }
 }

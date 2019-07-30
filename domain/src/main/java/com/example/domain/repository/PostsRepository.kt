@@ -6,5 +6,4 @@ import io.reactivex.Single
 interface PostsRepository {
     fun getPosts(): Single<List<Post>>
 
-    fun getPost(postId: String): Single<Post>
 }

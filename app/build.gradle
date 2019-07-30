@@ -31,6 +31,7 @@ dependencies {
     implementation libraries.material
     implementation libraries.dagger
     implementation libraries.daggerSupport
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt libraries.daggerProcessor
     kapt libraries.daggerAndroidApt
     implementation libraries.okhttpLogger
@@ -47,13 +48,16 @@ dependencies {
     implementation libraries.geson
     implementation libraries.constraintLayout
     implementation libraries.legacysupport
+    testImplementation libraries.mockito_kotlin
     testImplementation libraries.junit
+    testImplementation libraries.achCore
     androidTestImplementation libraries.testRunner
     androidTestImplementation libraries.espressoCore
     implementation project(path: ':data')
     implementation project(path: ':domain')
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
     implementation 'com.github.bumptech.glide:glide:4.9.0'
+    implementation 'jp.wasabeef:recyclerview-animators:2.3.0'
     kapt 'com.github.bumptech.glide:compiler:4.9.0'
 
 

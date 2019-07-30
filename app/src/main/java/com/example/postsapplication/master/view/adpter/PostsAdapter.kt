@@ -13,6 +13,7 @@ import javax.inject.Inject
 class PostsAdapter @Inject constructor() : RecyclerView.Adapter<PostsAdapter.PostsViewHolder>() {
 
     private val postsList:ArrayList<PostItem> = ArrayList()
+    private var onPostClicked:OnPostClicked? = null
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostsViewHolder {
@@ -28,9 +29,18 @@ class PostsAdapter @Inject constructor() : RecyclerView.Adapter<PostsAdapter.Pos
         holder.bind(post)
     }
 
+    fun setOnPostClickListener(onPostClicked: OnPostClicked){
+        this.onPostClicked = onPostClicked
+    }
+
     fun setPosts(postsList:List<PostItem>){
+        this.postsList.clear()
         this.postsList.addAll(postsList)
-        notifyDataSetChanged()
+        notifyItemRangeChanged(0,this.postsList.size)
+    }
+
+    interface OnPostClicked{
+       fun onClickPost(post: PostItem)
     }
 
     inner class PostsViewHolder(view:View):RecyclerView.ViewHolder(view){
@@ -40,6 +50,10 @@ class PostsAdapter @Inject constructor() : RecyclerView.Adapter<PostsAdapter.Pos
                 user_image.loadAvatar(post.email)
                 tvTitle.text = post.title
                 tvBody.text = post.body
+
+                setOnClickListener {
+                    onPostClicked?.onClickPost(post)
+                }
             }
         }
     }

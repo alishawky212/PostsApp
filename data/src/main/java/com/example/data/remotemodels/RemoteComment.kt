@@ -9,9 +9,9 @@ data class RemoteComment(
     @SerializedName("email")
     val email: String,
     @SerializedName("id")
-    val id: Int,
+    val id: String,
     @SerializedName("name")
     val name: String,
     @SerializedName("postId")
-    val postId: Int
+    val postId: String
 )

@@ -4,7 +4,7 @@ data class User(
     val address: Address,
     val company: Company,
     val email: String,
-    val id: Int,
+    val id: String,
     val name: String,
     val phone: String,
     val username: String,

@@ -3,7 +3,7 @@ package com.example.domain.models
 
 data class Post(
     val body: String,
-    val id: Int,
+    val id: String,
     val title: String,
-    val userId: Int
+    val userId: String
 )

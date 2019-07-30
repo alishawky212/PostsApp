@@ -39,6 +39,7 @@ dependencies {
     implementation libraries.rxJava
     implementation libraries.rxAndroid
     implementation libraries.inject
+    testImplementation libraries.mockito_kotlin
     testImplementation libraries.junit
     androidTestImplementation libraries.testRunner
     androidTestImplementation libraries.espressoCore

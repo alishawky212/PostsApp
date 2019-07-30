@@ -6,6 +6,8 @@ dependencies {
     implementation libraries.rxJava
     implementation libraries.inject
     testImplementation libraries.junit
+    testImplementation libraries.assertj_core
+    testImplementation libraries.mockito_kotlin
     implementation libraries.kotlin
 }
 

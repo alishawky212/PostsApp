@@ -21,6 +21,6 @@ interface RemoteApis {
     @GET("users/{id}")
     fun getUser(@Path("id") userId: String): Single<RemoteUser>
 
-    @GET("posts/comments")
+    @GET("comments")
     fun getPostComments(@Query("postId") postId:String):Single<List<RemoteComment>>
 }
