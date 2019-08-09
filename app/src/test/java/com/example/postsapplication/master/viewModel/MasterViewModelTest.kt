@@ -17,8 +17,7 @@ import org.mockito.Mockito.`when` as _when
 
 class MasterViewModelTest {
 
-
-    private val useCase = mock<UsersPostsUseCase>{}
+    private val useCase = mock<UsersPostsUseCase> {}
 
     private val mapper: PostItemMapper = PostItemMapper()
 
@@ -29,10 +28,9 @@ class MasterViewModelTest {
 
     private val combinedUserPosts = listOf(CombinedUserPost(user, post))
 
-
     @Before
     fun setUp() {
-        viewModel = MasterViewModel(useCase,mapper, Schedulers.trampoline())
+        viewModel = MasterViewModel(useCase, mapper, Schedulers.trampoline())
     }
 
     @Test
@@ -41,6 +39,6 @@ class MasterViewModelTest {
 
         viewModel.getAllPosts()
 
-        assertEquals(PostsState.DataState(combinedUserPosts),viewModel.getPostsLiveData().value)
+        assertEquals(PostsState.DataState(combinedUserPosts), viewModel.getPostsLiveData().value)
     }
 }

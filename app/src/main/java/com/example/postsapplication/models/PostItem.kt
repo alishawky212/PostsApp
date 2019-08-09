@@ -12,7 +12,7 @@ data class PostItem(val postId: String, val userId: String, val title: String, v
         }
     }
 
-    constructor(source: Parcel): this(
+    constructor(source: Parcel) : this(
     source.readString(),
     source.readString(),
     source.readString(),

@@ -4,8 +4,10 @@ import com.example.data.remotemodels.RemoteUser
 import com.example.domain.models.User
 import javax.inject.Inject
 
-class UserMapper @Inject constructor(private val addressMapper: AddressMapper,
-                                     private val companyMapper: CompanyMapper) {
+class UserMapper @Inject constructor(
+    private val addressMapper: AddressMapper,
+    private val companyMapper: CompanyMapper
+) {
 
     fun mapToDomain(entity: RemoteUser): User = User(id = entity.id,
         name = entity.name,
@@ -17,5 +19,4 @@ class UserMapper @Inject constructor(private val addressMapper: AddressMapper,
         company = companyMapper.mapToDomain(entity.company))
 
     fun mapToDomain(list: List<RemoteUser>): List<User> = list.map { mapToDomain(it) }
-
 }

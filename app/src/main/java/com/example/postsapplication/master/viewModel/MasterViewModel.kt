@@ -13,14 +13,16 @@ import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 import javax.inject.Named
 
-class MasterViewModel @Inject constructor(private val useCase: UsersPostsUseCase,
-                                          private val mapper: PostItemMapper
-                                          ,@Named(value = IO_SCHEDULER) private val ioScheduler: Scheduler) : ViewModel() {
+class MasterViewModel @Inject constructor(
+    private val useCase: UsersPostsUseCase,
+    private val mapper: PostItemMapper,
+    @Named(value = IO_SCHEDULER) private val ioScheduler: Scheduler
+) : ViewModel() {
 
     private val posts = MutableLiveData<PostsState<PostItem>>()
     private val compositeDisposable = CompositeDisposable()
-
-    fun getAllPosts(){
+    val v = ""
+    fun getAllPosts() {
         compositeDisposable.add(useCase.get()
             .doOnSubscribe { posts.postValue(PostsState.LoadingState) }
             .subscribeOn(ioScheduler)
@@ -31,7 +33,7 @@ class MasterViewModel @Inject constructor(private val useCase: UsersPostsUseCase
             }, { posts.postValue(PostsState.ErrorState(it.localizedMessage)) }))
     }
 
-    fun getPostsLiveData():LiveData<PostsState<PostItem>>{
+    fun getPostsLiveData(): LiveData<PostsState<PostItem>> {
         return posts
     }
 

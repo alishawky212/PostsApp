@@ -10,7 +10,7 @@ import com.example.postsapplication.models.CommentItem
 import kotlinx.android.synthetic.main.comment_item.view.*
 import javax.inject.Inject
 
-class CommentsAdapter @Inject constructor():RecyclerView.Adapter<CommentsAdapter.CommentsViewHolder>() {
+class CommentsAdapter @Inject constructor() : RecyclerView.Adapter<CommentsAdapter.CommentsViewHolder>() {
 
     private val commentsList = ArrayList<CommentItem>()
 
@@ -27,16 +27,16 @@ class CommentsAdapter @Inject constructor():RecyclerView.Adapter<CommentsAdapter
         holder.bind(comment)
     }
 
-    fun setComments(comments:List<CommentItem>){
+    fun setComments(comments: List<CommentItem>) {
         commentsList.clear()
         commentsList.addAll(comments)
-        notifyItemRangeChanged(0,commentsList.size)
+        notifyItemRangeChanged(0, commentsList.size)
     }
 
-    inner class CommentsViewHolder(view:View):RecyclerView.ViewHolder(view){
+    inner class CommentsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        fun bind(comment:CommentItem){
-            with(itemView){
+        fun bind(comment: CommentItem) {
+            with(itemView) {
                 userAvatar.loadAvatar(comment.email)
                 userName.text = comment.name
                 commentBody.text = comment.body

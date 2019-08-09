@@ -10,5 +10,5 @@ interface ActivityBuilder {
 
     @PerActivity
     @ContributesAndroidInjector
-    fun bindMainActivity():MainActivity
+    fun bindMainActivity(): MainActivity
 }

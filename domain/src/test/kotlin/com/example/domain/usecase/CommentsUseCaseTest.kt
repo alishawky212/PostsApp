@@ -8,7 +8,6 @@ import org.junit.Before
 import org.junit.Test
 import org.mockito.Mockito.`when` as _when
 
-
 class CommentsUseCaseTest {
     private lateinit var usecase: CommentsUseCase
 
@@ -18,12 +17,12 @@ class CommentsUseCaseTest {
     private val commentList = listOf(createComment())
 
     @Before
-    fun setUp(){
+    fun setUp() {
         usecase = CommentsUseCase(mockRepository)
     }
 
     @Test
-    fun repositoryGet(){
+    fun repositoryGet() {
         _when(mockRepository.get(postId = postId.toString())).thenReturn(Single.just(commentList))
 
         val test = usecase.getComments(postId.toString()).test()

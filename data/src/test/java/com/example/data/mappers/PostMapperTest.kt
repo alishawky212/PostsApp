@@ -4,7 +4,7 @@ import com.example.data.createPost
 import org.junit.Before
 import org.junit.Test
 
-import org.junit.Assert.*
+import org.junit.Assert.assertTrue
 
 class PostMapperTest {
 

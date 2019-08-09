@@ -3,9 +3,8 @@ package com.example.postsapplication.models.mappers
 import com.example.domain.usecase.CombinedUserPost
 import com.example.postsapplication.createPost
 import com.example.postsapplication.createUser
+import org.junit.Assert.assertTrue
 import org.junit.Test
-
-import org.junit.Assert.*
 import org.junit.Before
 
 class PostItemMapperTest {
@@ -13,7 +12,7 @@ class PostItemMapperTest {
     lateinit var mapper: PostItemMapper
 
     @Before
-    fun setUp(){
+    fun setUp() {
         mapper = PostItemMapper()
     }
 

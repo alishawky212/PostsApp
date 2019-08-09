@@ -9,8 +9,8 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class CommentRepositoryImpl @Inject constructor(private val remoteApis: RemoteApis, private val mapper: CommentMapper):CommentRepository{
+class CommentRepositoryImpl @Inject constructor(private val remoteApis: RemoteApis, private val mapper: CommentMapper) : CommentRepository {
     override fun get(postId: String): Single<List<Comment>> {
-       return remoteApis.getPostComments(postId).map { mapper.mapToDomain(it) }
+        return remoteApis.getPostComments(postId).map { mapper.mapToDomain(it) }
     }
 }

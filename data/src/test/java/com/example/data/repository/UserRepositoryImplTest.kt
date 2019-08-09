@@ -13,30 +13,22 @@ import org.junit.Before
 import org.junit.Test
 import org.mockito.Mockito.`when` as _when
 
-
-import org.junit.Assert.*
-
 class UserRepositoryImplTest {
 
-    lateinit var repository:UserRepositoryImpl
+    private lateinit var repository: UserRepositoryImpl
 
     private val mockApi = mock<RemoteApis>()
 
     private val mapper = UserMapper(AddressMapper(GeoMapper()), CompanyMapper())
 
-    private val userId = "1"
-
     private val remoteItem = createUser()
 
     private val remoteList = listOf(remoteItem)
 
-
-
     @Before
     fun setUp() {
-        repository = UserRepositoryImpl(mockApi,mapper)
+        repository = UserRepositoryImpl(mockApi, mapper)
     }
-
 
     @Test
     fun getUsers() {

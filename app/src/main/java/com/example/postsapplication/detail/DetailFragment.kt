@@ -1,6 +1,5 @@
 package com.example.postsapplication.detail
 
-
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,13 +8,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.DividerItemDecoration
-import com.example.postsapplication.*
-
+import com.example.postsapplication.R
+import com.example.postsapplication.ViewModelFactory
 import com.example.postsapplication.detail.adapter.CommentsAdapter
 import com.example.postsapplication.detail.viewModel.DetailViewModel
+import com.example.postsapplication.loadAvatar
 import com.example.postsapplication.models.CommentItem
 import com.example.postsapplication.models.PostItem
 import com.example.postsapplication.models.PostsState
+import com.example.postsapplication.observe
+import com.example.postsapplication.withViewModel
 import dagger.android.support.AndroidSupportInjection
 import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
 import kotlinx.android.synthetic.main.fragment_detail.*
@@ -33,8 +35,7 @@ class DetailFragment : Fragment() {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
-    lateinit var viewModel:DetailViewModel
-
+    private lateinit var viewModel: DetailViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,24 +44,35 @@ class DetailFragment : Fragment() {
             postItem = it.getParcelable(ARG_POST)
         }
 
-        viewModel = withViewModel(viewModelFactory){
-            getComments(postItem!!.postId)
-            observe(getCommentsList(),::updateComments)
+        viewModel = withViewModel(viewModelFactory) {
+            postItem?.let {
+                getComments(it.postId)
+            }
+            observe(getCommentsList(), ::updateComments)
         }
     }
 
-    private fun updateComments(data: PostsState<CommentItem>?){
-       data?.let {
-           when(it){
-               PostsState.LoadingState->{ Log.d("Loading","LoadingComments")}
-               is PostsState.DataState -> adapter.setComments(it.data)
-               is PostsState.ErrorState -> { Toast.makeText(context,it.error, Toast.LENGTH_LONG).show()}
-           }
-       }
+    private fun updateComments(commentsState: PostsState<CommentItem>?) {
+        commentsState?.let {
+            when (it) {
+                PostsState.LoadingState -> Log.d("Loading", "LoadingComments")
+                is PostsState.DataState -> showData(it)
+                is PostsState.ErrorState -> showError(it)
+            }
+        }
+    }
+
+    private fun showError(it: PostsState.ErrorState<CommentItem>) {
+        Toast.makeText(context, it.error, Toast.LENGTH_LONG).show()
+    }
+
+    private fun showData(it: PostsState.DataState<CommentItem>) {
+        adapter.setComments(it.data)
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
@@ -94,7 +106,6 @@ class DetailFragment : Fragment() {
         commentsRecyclerView.itemAnimator = slideInUpAnimator
         commentsRecyclerView.adapter = adapter
     }
-
 
     companion object {
         @JvmStatic

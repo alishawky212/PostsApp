@@ -10,7 +10,6 @@ import org.junit.Before
 import org.junit.Test
 import org.mockito.Mockito.`when` as _when
 
-
 class UsersPostsUseCaseTest {
 
     private lateinit var useCase: UsersPostsUseCase
@@ -26,7 +25,7 @@ class UsersPostsUseCaseTest {
 
     @Before
     fun setUp() {
-        useCase = UsersPostsUseCase(mockPostsRepository,mockUserRepository,mapper)
+        useCase = UsersPostsUseCase(mockPostsRepository, mockUserRepository, mapper)
     }
 
     @Test

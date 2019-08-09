@@ -1,14 +1,13 @@
 package com.example.data.mappers
 
 import com.example.data.createComment
+import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 
-import org.junit.Assert.*
-
 class CommentMapperTest {
 
-    lateinit var commentMapper: CommentMapper
+    private lateinit var commentMapper: CommentMapper
 
     @Before
     fun setUp() {

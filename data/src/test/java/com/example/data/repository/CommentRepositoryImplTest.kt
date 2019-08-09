@@ -10,7 +10,6 @@ import org.junit.Before
 import org.junit.Test
 import org.mockito.Mockito.`when` as _when
 
-
 class CommentRepositoryImplTest {
     private lateinit var repository: CommentRepositoryImpl
 
@@ -25,7 +24,7 @@ class CommentRepositoryImplTest {
 
     @Before
     fun setUp() {
-        repository = CommentRepositoryImpl(remoteApis = mockApi,mapper = mapper)
+        repository = CommentRepositoryImpl(remoteApis = mockApi, mapper = mapper)
     }
 
     @Test

@@ -9,7 +9,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class PostRepositoryImpl @Inject constructor(private val remoteApis: RemoteApis,private val mapper: PostMapper) : PostsRepository {
+class PostRepositoryImpl @Inject constructor(private val remoteApis: RemoteApis, private val mapper: PostMapper) : PostsRepository {
     override fun getPosts(): Single<List<Post>> {
         return remoteApis.getPosts().map { mapper.mapToDomain(it) }
     }

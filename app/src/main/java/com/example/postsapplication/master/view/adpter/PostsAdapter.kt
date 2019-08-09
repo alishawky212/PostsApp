@@ -12,9 +12,8 @@ import javax.inject.Inject
 
 class PostsAdapter @Inject constructor() : RecyclerView.Adapter<PostsAdapter.PostsViewHolder>() {
 
-    private val postsList:ArrayList<PostItem> = ArrayList()
-    private var onPostClicked:OnPostClicked? = null
-
+    private val postsList: ArrayList<PostItem> = ArrayList()
+    private var onPostClicked: OnPostClicked? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostsViewHolder {
         return PostsViewHolder(parent.inflate(R.layout.post_item))
@@ -29,24 +28,22 @@ class PostsAdapter @Inject constructor() : RecyclerView.Adapter<PostsAdapter.Pos
         holder.bind(post)
     }
 
-    fun setOnPostClickListener(onPostClicked: OnPostClicked){
+    fun setOnPostClickListener(onPostClicked: OnPostClicked) {
         this.onPostClicked = onPostClicked
     }
 
-    fun setPosts(postsList:List<PostItem>){
+    fun setPosts(postsList: List<PostItem>) {
         this.postsList.clear()
         this.postsList.addAll(postsList)
-        notifyItemRangeChanged(0,this.postsList.size)
+        notifyItemRangeChanged(0, this.postsList.size)
     }
 
-    interface OnPostClicked{
-       fun onClickPost(post: PostItem)
-    }
+    interface OnPostClicked { fun onClickPost(post: PostItem) }
 
-    inner class PostsViewHolder(view:View):RecyclerView.ViewHolder(view){
+    inner class PostsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        fun bind(post:PostItem){
-            with(itemView){
+        fun bind(post: PostItem) {
+            with(itemView) {
                 user_image.loadAvatar(post.email)
                 tvTitle.text = post.title
                 tvBody.text = post.body

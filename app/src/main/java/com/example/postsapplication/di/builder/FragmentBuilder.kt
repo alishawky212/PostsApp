@@ -10,9 +10,9 @@ import dagger.android.ContributesAndroidInjector
 interface FragmentBuilder {
     @PerFragment
     @ContributesAndroidInjector
-    fun bindMasterFragment():MasterFragment
+    fun bindMasterFragment(): MasterFragment
 
     @PerFragment
     @ContributesAndroidInjector
-    fun bindDetailFragment():DetailFragment
+    fun bindDetailFragment(): DetailFragment
 }

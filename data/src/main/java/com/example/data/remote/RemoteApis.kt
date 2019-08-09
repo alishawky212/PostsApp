@@ -5,7 +5,6 @@ import com.example.data.remotemodels.RemotePost
 import com.example.data.remotemodels.RemoteUser
 import io.reactivex.Single
 import retrofit2.http.GET
-import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface RemoteApis {
@@ -16,5 +15,5 @@ interface RemoteApis {
     fun getUsers(): Single<List<RemoteUser>>
 
     @GET("comments")
-    fun getPostComments(@Query("postId") postId:String):Single<List<RemoteComment>>
+    fun getPostComments(@Query("postId") postId: String): Single<List<RemoteComment>>
 }

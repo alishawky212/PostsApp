@@ -4,12 +4,12 @@ import com.example.data.createUser
 import org.junit.Before
 import org.junit.Test
 
-import org.junit.Assert.*
+import org.junit.Assert.assertTrue
 
 class UserMapperTest {
 
     private lateinit var mapper: UserMapper
-    
+
     @Before
     fun setUp() {
         mapper = UserMapper(AddressMapper(GeoMapper()), CompanyMapper())
@@ -18,7 +18,7 @@ class UserMapperTest {
     @Test
     fun mapToDomain() {
         val remoteUser = createUser()
-        
+
         val domainModel = mapper.mapToDomain(remoteUser)
 
         assertTrue(domainModel.id == remoteUser.id)

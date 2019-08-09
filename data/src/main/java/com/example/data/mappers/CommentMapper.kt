@@ -13,5 +13,4 @@ class CommentMapper @Inject constructor() {
         entity.postId)
 
     fun mapToDomain(list: List<RemoteComment>): List<Comment> = list.map { mapToDomain(it) }
-
 }

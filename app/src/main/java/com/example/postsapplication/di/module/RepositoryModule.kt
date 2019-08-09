@@ -9,16 +9,15 @@ import com.example.domain.repository.UserRepository
 import dagger.Binds
 import dagger.Module
 
-
 @Module
 abstract class RepositoryModule {
 
     @Binds
-    abstract fun bindPostsRepository(repositoryImpl:PostRepositoryImpl):PostsRepository
+    abstract fun bindPostsRepository(repositoryImpl: PostRepositoryImpl): PostsRepository
 
     @Binds
-    abstract fun bindCommentRepository(repositoryImpl: CommentRepositoryImpl):CommentRepository
+    abstract fun bindCommentRepository(repositoryImpl: CommentRepositoryImpl): CommentRepository
 
     @Binds
-    abstract fun bindUserRepository(repositoryImpl: UserRepositoryImpl):UserRepository
+    abstract fun bindUserRepository(repositoryImpl: UserRepositoryImpl): UserRepository
 }

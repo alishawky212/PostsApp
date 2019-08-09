@@ -13,25 +13,26 @@ import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 import javax.inject.Named
 
-class DetailViewModel @Inject constructor(private val commentsUseCase: CommentsUseCase,
-                                          private val commentItemMapper: CommentItemMapper
-                                          ,@Named(value = IO_SCHEDULER) private val ioScheduler: Scheduler
-) :ViewModel() {
+class DetailViewModel @Inject constructor(
+    private val commentsUseCase: CommentsUseCase,
+    private val commentItemMapper: CommentItemMapper,
+    @Named(value = IO_SCHEDULER) private val ioScheduler: Scheduler
+) : ViewModel() {
 
-    private val commentsList:MutableLiveData<PostsState<CommentItem>> = MutableLiveData()
-    private val compositeDisposable:CompositeDisposable = CompositeDisposable()
-    fun getCommentsList():LiveData<PostsState<CommentItem>>{
+    private val commentsList: MutableLiveData<PostsState<CommentItem>> = MutableLiveData()
+    private val compositeDisposable: CompositeDisposable = CompositeDisposable()
+    fun getCommentsList(): LiveData<PostsState<CommentItem>> {
         return commentsList
     }
 
-    fun getComments(postId:String){
+    fun getComments(postId: String) {
         compositeDisposable.add(
             commentsUseCase.getComments(postId)
                 .doOnSubscribe { commentsList.postValue(PostsState.LoadingState) }
                 .observeOn(ioScheduler)
                 .subscribeOn(ioScheduler)
                 .map { commentItemMapper.mapToPresentation(it) }
-                .subscribe ({
+                .subscribe({
                     commentsList.postValue(PostsState.DataState(it))
                 }, { commentsList.postValue(PostsState.ErrorState(it.localizedMessage)) }))
     }

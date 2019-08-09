@@ -11,7 +11,6 @@ data class User(
     val website: String
 )
 
-
 data class Address(
     val city: String,
     val geo: Geo,

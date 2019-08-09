@@ -10,8 +10,6 @@ import org.junit.Before
 import org.junit.Test
 import org.mockito.Mockito.`when` as _when
 
-
-
 class PostRepositoryImplTest {
 
     private lateinit var repository: PostRepositoryImpl
@@ -27,7 +25,7 @@ class PostRepositoryImplTest {
 
     @Before
     fun setUp() {
-        repository = PostRepositoryImpl(mockApi,mapper)
+        repository = PostRepositoryImpl(mockApi, mapper)
     }
 
     @Test
@@ -40,5 +38,4 @@ class PostRepositoryImplTest {
         verify(mockApi).getPosts()
         test.assertValue(mapper.mapToDomain(remoteList))
     }
-
 }
