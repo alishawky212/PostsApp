@@ -21,7 +21,6 @@ class MasterViewModel @Inject constructor(
 
     private val posts = MutableLiveData<PostsState<PostItem>>()
     private val compositeDisposable = CompositeDisposable()
-    val v = ""
     fun getAllPosts() {
         compositeDisposable.add(useCase.get()
             .doOnSubscribe { posts.postValue(PostsState.LoadingState) }
