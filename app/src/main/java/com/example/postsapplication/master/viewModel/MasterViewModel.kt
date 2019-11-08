@@ -29,7 +29,9 @@ class MasterViewModel @Inject constructor(
             .map { mapper.mapToPresentation(it) }
             .subscribe({
                 posts.postValue(PostsState.DataState(it))
-            }, { posts.postValue(PostsState.ErrorState(it.localizedMessage)) }))
+            }, {
+                posts.postValue(PostsState.ErrorState(it.localizedMessage))
+            }))
     }
 
     fun getPostsLiveData(): LiveData<PostsState<PostItem>> {
