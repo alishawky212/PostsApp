@@ -17,4 +17,4 @@ fun createPost(): Post = Post(id = "1", userId = "1", title = "title", body = "b
 
 fun createComment(): Comment = Comment(id = "1", postId = "1", name = "name", email = "email", body = "body")
 
-fun createPostItem():PostItem = PostItem(postId = "1",userId = "1",title = "title",body = "body",name = "name",username = "username",email = "email")
+fun createPostItem(): PostItem = PostItem(postId = "1", userId = "1", title = "title", body = "body", name = "name", username = "username", email = "email")

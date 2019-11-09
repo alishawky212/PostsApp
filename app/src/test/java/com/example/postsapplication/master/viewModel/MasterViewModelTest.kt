@@ -18,8 +18,6 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.postsapplication.createPostItem
 import org.junit.Rule
 
-
-
 class MasterViewModelTest {
 
     @get:Rule
