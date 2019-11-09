@@ -32,6 +32,7 @@ dependencies {
     implementation libraries.kotlin
     implementation libraries.appCompat
     implementation libraries.material
+    implementation libraries.rxBindingAppCompat
     implementation libraries.dagger
     implementation libraries.daggerSupport
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
