@@ -14,8 +14,14 @@ import org.junit.Before
 import org.junit.Test
 
 import org.mockito.Mockito.`when` as _when
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.example.postsapplication.createPostItem
+import org.junit.Rule
 
 class MasterViewModelTest {
+
+    @get:Rule
+    var rule = InstantTaskExecutorRule()
 
     private val useCase = mock<UsersPostsUseCase> {}
 
@@ -28,6 +34,8 @@ class MasterViewModelTest {
 
     private val combinedUserPosts = listOf(CombinedUserPost(user, post))
 
+    private val postItem = listOf(createPostItem())
+
     @Before
     fun setUp() {
         viewModel = MasterViewModel(useCase, mapper, Schedulers.trampoline())
@@ -39,6 +47,8 @@ class MasterViewModelTest {
 
         viewModel.getAllPosts()
 
-        assertEquals(PostsState.DataState(combinedUserPosts), viewModel.getPostsLiveData().value)
+        val postItem = viewModel.getPostsLiveData().value
+
+        assertEquals(post.id, (postItem as PostsState.DataState).data[0].postId)
     }
 }

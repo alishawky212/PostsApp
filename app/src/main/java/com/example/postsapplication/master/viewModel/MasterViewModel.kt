@@ -21,7 +21,6 @@ class MasterViewModel @Inject constructor(
 
     private val posts = MutableLiveData<PostsState<PostItem>>()
     private val compositeDisposable = CompositeDisposable()
-    val v = ""
     fun getAllPosts() {
         compositeDisposable.add(useCase.get()
             .doOnSubscribe { posts.postValue(PostsState.LoadingState) }
@@ -30,7 +29,9 @@ class MasterViewModel @Inject constructor(
             .map { mapper.mapToPresentation(it) }
             .subscribe({
                 posts.postValue(PostsState.DataState(it))
-            }, { posts.postValue(PostsState.ErrorState(it.localizedMessage)) }))
+            }, {
+                posts.postValue(PostsState.ErrorState(it.localizedMessage))
+            }))
     }
 
     fun getPostsLiveData(): LiveData<PostsState<PostItem>> {

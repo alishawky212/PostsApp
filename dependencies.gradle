@@ -70,7 +70,8 @@ ext {
         stackimageview      : '0.0.6',
         assertj_core        : '3.9.1',
         mockito_kotlin      : "1.5.0",
-        archCore            : "2.0.0-rc01"
+        archCore            : "2.0.0-rc01",
+        recyclerviewanimators : "2.3.0"
     ]
     libraries = [
         kotlin             : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}",
@@ -111,6 +112,8 @@ ext {
         daggerAndroidApt   : "com.google.dagger:dagger-android-processor:${versions.dagger}",
         flexbox            : "com.google.android:flexbox:${versions.flexbox}",
         retrofitRxAdapter     : "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofitRxAdapter",
+        ifecycleextensions: "androidx.lifecycle:lifecycle-extensions:$versions.archCore",
+        recyclerviewanimators : "jp.wasabeef:recyclerview-animators:$versions.recyclerviewanimators",
 
 
         rxAndroid          : "io.reactivex.rxjava2:rxandroid:${versions.rxAndroid}",
