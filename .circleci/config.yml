@@ -36,7 +36,7 @@ jobs:
           path: app/build/test-results
       - run:
           name: Run Domain Module Ktlint
-          command: ./gradlew :doman:ktlintCheck
+          command: ./gradlew :domain:ktlintCheck
       - run:
           name: Run Domain Module Unit Tests
           command: ./gradlew :domain:test   
